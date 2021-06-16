@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./allSettled.js"></script>
+</head>
+<body>
+    <script>
+        // const p1 = new myPromise((resolve,reject)=>{
+        //     console.log("11111111");
+        //     setTimeout(()=>{
+        //         resolve("success");
+        //         // reject("fail");
+        //     },1000)
+        // })
+        // console.log(p1);
+
+        // const p2 = p1.then((data) => {
+        //     console.log(data);
+        // })
+        // // console.log(p2);
+        // const p3 = p2.catch((reason) => {
+        //     console.log(reason);
+        // })
+        // console.log(p3);
+
+        // const p2 = p1.finally(()=>{
+        //     // return 123;
+        //     return new myPromise((resolve, reject) => {
+        //         // resolve(123);
+        //         reject(123);
+        //     })
+        // })
+
+        
+        const p1 = new myPromise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("success");
+                // reject("fail");
+            }, 1000)
+        });
+
+        const p2 = new myPromise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("success");
+                // reject("fail");
+            }, 1000)
+        });
+        const p3 = new myPromise((resolve, reject) => {
+            setTimeout(() => {
+                resolve("success");
+                // reject("fail");
+            }, 1000)
+        });
+
+        const p4 = myPromise.allSettled([p1, p2, p3]);
+        console.log(p4);
+    </script>
+</body>
+</html>

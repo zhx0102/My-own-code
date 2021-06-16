@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" id="form">
+        user: <input type="text" name="user" id="user">
+        <br>
+        pass: <input type="password" name="pass" id="pass">
+        <br>
+        <button id="btn">提交</button>
+    </form>
+    <script>
+         const oForm = document.getElementById('form')
+        const oUser = document.getElementById('user')
+        const oPass = document.getElementById('pass')
+        const oBtn = document.getElementById('btn')
+        oForm.onsubmit = function(e){
+            const xhr = new XHLHttpRequest();
+            xhr.open("get","/login",true);
+            xhr.send();
+            xhr.onreadystatechange = function(){
+                if(xhr.readyState === 4 && xhr.status === 200){
+                    console.log(TSON.parse(xhr.responseText));
+                }
+            }
+            return false;
+        }
+    </script>
+</body>
+</html>
